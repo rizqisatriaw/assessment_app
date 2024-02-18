@@ -10,11 +10,10 @@ class ListAssessmentController extends GetxController {
   RxInt dataOffset = RxInt(1);
   RxInt totalData = RxInt(0);
   RxBool isLoading = RxBool(false);
+  RxList<Assessment> assessmentList = RxList.empty();
 
-  // RxBool isLoadMore = RxBool(true);
   bool get isLoadMore =>
       assessmentList.length != totalData.value && isLoading.value == false;
-  RxList<Assessment> assessmentList = RxList.empty();
 
   @override
   void onInit() {

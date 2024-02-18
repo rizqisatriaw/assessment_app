@@ -27,6 +27,7 @@ class ListAssessmentView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   StickyHeader(
+                    /// Title Header
                     header: Container(
                       alignment: Alignment.centerLeft,
                       width: Get.width,
@@ -43,6 +44,8 @@ class ListAssessmentView extends StatelessWidget {
                         ],
                       ),
                     ),
+
+                    /// List Assessment
                     content: ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -71,6 +74,8 @@ class ListAssessmentView extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     )
                   ],
+
+                  /// Condition load more
                   if (controller.isLoadMore) ...[
                     SizedBox(height: 16.h),
                     Center(
