@@ -1,11 +1,8 @@
 import 'dart:developer';
-
-import 'package:assessment_app/src/domain/services/global_dio.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/repositories/list_assessment_repository.dart';
 import '../../../../domain/entities/list_assessment/assessment.dart';
-import '../../../../domain/services/local_storage_service.dart';
 
 class ListAssessmentController extends GetxController {
   static ListAssessmentController get to => Get.find();

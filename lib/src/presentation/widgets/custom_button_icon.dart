@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../configs/themes/color_themes.dart';
 import 'custom_text.dart';
 
-class CustomButtonList extends StatelessWidget {
-  const CustomButtonList({
+class CustomButtonIcon extends StatelessWidget {
+  const CustomButtonIcon({
     super.key,
     required this.title,
     required this.onTap,

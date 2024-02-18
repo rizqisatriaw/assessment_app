@@ -13,6 +13,7 @@ class CustomItemList extends StatelessWidget {
     required this.image,
     required this.title,
     required this.createDate,
+    required this.onTap,
     this.lastDate,
   }) : super(key: key);
 
@@ -20,75 +21,79 @@ class CustomItemList extends StatelessWidget {
   final String title;
   final String createDate;
   final String? lastDate;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4.r),
-        border: Border.all(color: ColorThemes.lightColor),
-        color: ColorThemes.white,
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(16.sp),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.only(right: 18.w),
-              child: CachedNetworkImage(
-                imageUrl: image,
-                width: 54.w,
-                height: 54.w,
-                alignment: Alignment.center,
-                fit: BoxFit.cover,
-                errorWidget: (context, url, error) =>
-                    Image.asset(AssetsConst.surveyImage),
-                progressIndicatorBuilder: (context, url, progress) =>
-                    const CircularProgressIndicator(),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4.r),
+          border: Border.all(color: ColorThemes.lightColor),
+          color: ColorThemes.white,
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(16.sp),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.only(right: 18.w),
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  width: 54.w,
+                  height: 54.w,
+                  alignment: Alignment.center,
+                  fit: BoxFit.cover,
+                  errorWidget: (context, url, error) =>
+                      Image.asset(AssetsConst.surveyImage),
+                  progressIndicatorBuilder: (context, url, progress) =>
+                      const CircularProgressIndicator(),
+                ),
               ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  /// Title
-                  CustomText(
-                    title: title,
-                    size: 14.sp,
-                    weight: FontWeight.w500,
-                  ),
-                  SizedBox(height: 8.h),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Title
+                    CustomText(
+                      title: title,
+                      size: 14.sp,
+                      weight: FontWeight.w500,
+                    ),
+                    SizedBox(height: 8.h),
 
-                  /// Create Date
-                  CustomText(
-                    title: 'Created At : ${createDate.toGeneralDate()}',
-                    size: 12.sp,
-                    weight: FontWeight.w500,
-                    colorText: ColorThemes.greenTextColor,
-                  ),
-                  SizedBox(height: 8.h),
+                    /// Create Date
+                    CustomText(
+                      title: 'Created At : ${createDate.toGeneralDate()}',
+                      size: 12.sp,
+                      weight: FontWeight.w500,
+                      colorText: ColorThemes.greenTextColor,
+                    ),
+                    SizedBox(height: 8.h),
 
-                  /// Last Download Date
-                  CustomText(
-                    title:
-                        'Last Download : ${lastDate?.toGeneralDate() ?? '-'}',
-                    size: 12.sp,
-                    weight: FontWeight.w500,
-                    colorText: ColorThemes.greenTextColor,
-                  ),
-                ],
+                    /// Last Download Date
+                    CustomText(
+                      title:
+                          'Last Download : ${lastDate?.toGeneralDate() ?? '-'}',
+                      size: 12.sp,
+                      weight: FontWeight.w500,
+                      colorText: ColorThemes.greenTextColor,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.file_download_outlined),
-              color: ColorThemes.black,
-              iconSize: 24.sp,
-              onPressed: () {},
-            ),
-          ],
+              IconButton(
+                icon: const Icon(Icons.file_download_outlined),
+                color: ColorThemes.black,
+                iconSize: 24.sp,
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
