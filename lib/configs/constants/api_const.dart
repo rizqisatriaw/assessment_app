@@ -3,6 +3,6 @@ abstract class ApiConst {
   static const loginUrl = '$baseUrl/login';
   static assessmentListUrl(int offset) =>
       '$baseUrl/assessments?page=$offset&limit=5';
-  static const assessmentTestUrl =
-      '$baseUrl/assessments/question/:assessment_id';
+  static assessmentTestUrl(String assessmentId) =>
+      '$baseUrl/assessments/question/$assessmentId';
 }

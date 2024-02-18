@@ -1,4 +1,4 @@
-import 'package:assessment_app/src/domain/entities/test_assessment/test_assessment.dart';
+import '../../domain/entities/test_assessment/test_assessment.dart';
 
 class TestAssessmentResponse {
   final int? code;

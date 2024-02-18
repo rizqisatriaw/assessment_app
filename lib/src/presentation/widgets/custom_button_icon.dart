@@ -33,7 +33,7 @@ class CustomButtonIcon extends StatelessWidget {
               color: ColorThemes.white,
               size: 20.sp,
             ),
-            SizedBox(height: 2.h),
+            SizedBox(width: 4.w),
             CustomText(
               title: title,
               size: 15.sp,

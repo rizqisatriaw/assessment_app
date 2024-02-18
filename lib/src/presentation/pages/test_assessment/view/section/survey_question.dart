@@ -41,10 +41,11 @@ class SurveyQuestion extends StatelessWidget {
                 crossAxisSpacing: 8.w,
                 mainAxisSpacing: 8.w,
               ),
-              itemCount: controller.number.length,
+              itemCount: controller.testResponse?.data?.question?.length,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
-                final item = controller.number[index];
+                final item =
+                    controller.testResponse?.data?.question?[index].number;
                 return CustomItemGrid(
                   number: item.toString(),
                 );

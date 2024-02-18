@@ -11,7 +11,7 @@ class CustomRadioButton extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final int groupValue;
+  final int? groupValue;
   final VoidCallback onChanged;
 
   @override
@@ -25,7 +25,7 @@ class CustomRadioButton extends StatelessWidget {
             weight: FontWeight.w400,
           ),
           value: 1,
-          groupValue: groupValue,
+          groupValue: groupValue ?? 1,
           onChanged: (value) => onChanged,
         ),
         RadioListTile(
@@ -35,7 +35,7 @@ class CustomRadioButton extends StatelessWidget {
             weight: FontWeight.w400,
           ),
           value: 2,
-          groupValue: groupValue,
+          groupValue: groupValue ?? 1,
           onChanged: (value) => onChanged,
         ),
         RadioListTile(
@@ -45,7 +45,7 @@ class CustomRadioButton extends StatelessWidget {
             weight: FontWeight.w400,
           ),
           value: 3,
-          groupValue: groupValue,
+          groupValue: groupValue ?? 1,
           onChanged: (value) => onChanged,
         ),
         RadioListTile(
@@ -55,7 +55,7 @@ class CustomRadioButton extends StatelessWidget {
             weight: FontWeight.w400,
           ),
           value: 4,
-          groupValue: groupValue,
+          groupValue: groupValue ?? 1,
           onChanged: (value) => onChanged,
         ),
       ],

@@ -170,6 +170,13 @@
             </list>
           </value>
         </entry>
+        <entry key="group_button">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/group_button-5.3.4/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="hive">
           <value>
             <list>
@@ -544,6 +551,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_screenutil-5.7.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/get-4.6.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/google_fonts-4.0.4/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/group_button-5.3.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/hive-2.2.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/hive_flutter-1.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http-0.13.6/lib" />

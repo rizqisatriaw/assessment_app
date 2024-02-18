@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:get/get.dart';
 
+import '../../../../../configs/themes/color_themes.dart';
 import '../../../../data/repositories/list_assessment_repository.dart';
 import '../../../../domain/entities/list_assessment/assessment.dart';
 
@@ -39,6 +40,11 @@ class ListAssessmentController extends GetxController {
       }
     } catch (e, s) {
       log('$e :: $s');
+      Get.snackbar(
+        'Data is Empty',
+        'Please try again later',
+        backgroundColor: ColorThemes.white,
+      );
     }
   }
 }

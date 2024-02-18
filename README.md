@@ -20,6 +20,7 @@ This project is a starting point for a Flutter application.
 * [LocalAuth](https://pub.dev/packages/local_auth)
 * [Intl](https://pub.dev/packages/intl)
 * [CachedNetworkImage](https://pub.dev/packages/cached_network_image)
+* [GroupButton](https://pub.dev/packages/group_button)
 
 ### Folder Structure
 Here is the core folder structure which flutter.
@@ -55,4 +56,35 @@ lib/
         |- pages
         |- widgets
 |- main.dart
+```
+
+### List of challenge points that have been implemented :
+
+```
+1. Login Page (25 Point) *All Done
+    |- Point a (Done)
+    |- Point b (Done)
+    |- Point c (Done)
+    |- Point d (Done)
+    
+2. List Assessment Page (20 Point) *All Done
+    |- Point a (Done)
+    |- Point b (Done)
+    |- Point c (Done)
+    
+3. Assessment test page (30 Point)  
+    |- Point a (Done)
+    |- Point b (Done)
+    |- Point c (Done)
+    |- Point d (Done)
+    |- Point e
+    
+4. Handle Offline Mode (50 Point)
+    |- Point a 
+    |- Point b 
+    |- Point c 
+    
+Bonus Criteria :
+    |- Unit Test (done)
+    |- Documentation (done)
 ```
