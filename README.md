@@ -14,7 +14,9 @@ This project is a starting point for a Flutter application.
 * [GoogleFonts](https://pub.dev/packages/google_fonts)
 * [ScreenUtil](https://pub.dev/packages/flutter_screenutil)
 * [StickyHeaders](https://pub.dev/packages/sticky_headers)
-* 
+* [LocalAuth](https://pub.dev/packages/local_auth)
+* [Intl](https://pub.dev/packages/intl)
+* [CachedNetworkImage](https://pub.dev/packages/cached_network_image)
 
 ### Folder Structure
 Here is the core folder structure which flutter.
