@@ -31,6 +31,8 @@ class LoginController extends GetxController {
     passwordController.text = savedCred?['password'] ?? '';
   }
 
+  /// Condition POST Login
+  /// Checking saveCred() to show Username or Password which has been saved
   Future<void> postLogin() async {
     try {
       await saveCred();
@@ -48,6 +50,7 @@ class LoginController extends GetxController {
     }
   }
 
+  /// Condition to save data in RememberMe
   Future<void> saveCred() async {
     if (isChecked.value) {
       await LocalStorageService.rememberMe(
@@ -59,6 +62,7 @@ class LoginController extends GetxController {
     }
   }
 
+  /// Condition FingerPrint
   Future<void> fingerPrint() async {
     try {
       final bool canAuthenticateWithBiometrics =
