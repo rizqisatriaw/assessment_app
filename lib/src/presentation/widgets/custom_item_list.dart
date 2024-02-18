@@ -1,5 +1,5 @@
 import 'package:assessment_app/configs/constants/assets_const.dart';
-import 'package:assessment_app/configs/extenssion/date_format.dart';
+import 'package:assessment_app/configs/extensions/date_format.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

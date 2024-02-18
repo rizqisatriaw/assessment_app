@@ -13,6 +13,8 @@ This project is a starting point for a Flutter application.
 * [Hive](https://pub.dev/packages/hive)
 * [GoogleFonts](https://pub.dev/packages/google_fonts)
 * [ScreenUtil](https://pub.dev/packages/flutter_screenutil)
+* [StickyHeaders](https://pub.dev/packages/sticky_headers)
+* 
 
 ### Folder Structure
 Here is the core folder structure which flutter.
@@ -33,6 +35,7 @@ Here is the folder structure we have been using in this project
 lib/
 |- configs/
     |- constants
+    |- extensions
     |- routes
     |- themes
 |- src/
