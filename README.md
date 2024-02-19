@@ -10,7 +10,7 @@ This project is a starting point for a Flutter application.
 * [Documentation](https://docs.google.com/document/d/19PZn1P9JBcM7ptRfS9yo5tUbZhyFDAite_pN9PPCedI/edit?usp=sharing)
 
 ### Build Apk
-* [app-release.apk]()
+* [app-release.apk](https://drive.google.com/file/d/1ljxVExs8qe91koq1Gym1hvsXi3f96lde/view?usp=sharing)
 
 ### Libraries & Tools Used
 
