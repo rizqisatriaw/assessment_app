@@ -27,7 +27,7 @@ class CustomItemGrid extends StatelessWidget {
             padding: EdgeInsets.all(8.w),
             child: Center(
               child: CustomText(
-                title: number ?? '',
+                title: number,
                 size: 18.sp,
                 weight: FontWeight.w400,
                 colorText: ColorThemes.white,

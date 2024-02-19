@@ -36,7 +36,6 @@ class LoginRepository {
         );
       }
     } on DioException catch (e) {
-      print(e);
       if (e.type == DioExceptionType.connectionTimeout ||
           e.type == DioExceptionType.connectionError) {
         return LoginResponse(
