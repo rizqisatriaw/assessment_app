@@ -5,6 +5,7 @@ import 'package:assessment_app/src/data/repositories/test_assessment_repository.
 import 'package:get/get.dart';
 
 import '../../../../../configs/themes/color_themes.dart';
+import '../../../../domain/entities/test_assessment/question.dart';
 
 class TestAssessmentController extends GetxController {
   static TestAssessmentController get to => Get.find();
@@ -12,8 +13,11 @@ class TestAssessmentController extends GetxController {
   RxString id = RxString('');
   TestAssessmentResponse? testResponse;
 
+  var isChecked = false.obs;
   RxInt selectedOption = 0.obs;
   RxInt indexQuestion = 0.obs;
+  RxList<Question> questionList = RxList.empty();
+  Question get currentQuestion => questionList[indexQuestion.value];
 
   @override
   void onInit() {
@@ -29,6 +33,7 @@ class TestAssessmentController extends GetxController {
     if (response?.status ?? false) {
       log("response status = ${response?.status}");
       testResponse = response;
+      questionList.addAll(response?.data?.question ?? []);
       update();
     } else {
       Get.snackbar(
@@ -37,5 +42,9 @@ class TestAssessmentController extends GetxController {
         backgroundColor: ColorThemes.white,
       );
     }
+  }
+
+  void handleRadioValueChange(int value) {
+    selectedOption.value = value;
   }
 }

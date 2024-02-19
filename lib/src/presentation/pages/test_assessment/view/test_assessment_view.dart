@@ -18,7 +18,6 @@ class TestAssessmentView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: GetBuilder<TestAssessmentController>(builder: (controller) {
-          final response = controller.testResponse?.data;
           return Container(
             padding: EdgeInsets.symmetric(vertical: 24.h),
             color: ColorThemes.white,
@@ -43,7 +42,7 @@ class TestAssessmentView extends StatelessWidget {
                           Obx(
                             () => CustomButtonIcon(
                               title: '${controller.indexQuestion.value + 1}/'
-                                  '${response?.question?.length.toString() ?? ''}',
+                                  '${controller.questionList.length.toString()}',
                               onTap: () {
                                 Get.bottomSheet(
                                   Container(
@@ -56,7 +55,6 @@ class TestAssessmentView extends StatelessWidget {
                                           behavior: HitTestBehavior.opaque,
                                           child: const Spacer(),
                                           onTap: () {
-                                            log("tapped");
                                             Get.back();
                                           },
                                         ),
@@ -75,18 +73,21 @@ class TestAssessmentView extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 24.w),
                         child: CustomText(
-                          title: response?.name ?? 'Test Name',
+                          title: controller.testResponse?.data?.name ??
+                              'Test Name',
                           size: 16.sp,
                           weight: FontWeight.w700,
                         ),
                       ),
-                      CustomText(
-                        title: response
-                                ?.question?[controller.indexQuestion.value]
-                                .questionName ??
-                            '',
-                        size: 16.sp,
-                        weight: FontWeight.w400,
+                      Obx(
+                        () => CustomText(
+                          title: controller
+                                  .questionList[controller.indexQuestion.value]
+                                  .questionName ??
+                              '',
+                          size: 16.sp,
+                          weight: FontWeight.w400,
+                        ),
                       ),
                       SizedBox(height: 14.h),
                     ],
@@ -113,43 +114,64 @@ class TestAssessmentView extends StatelessWidget {
                 SizedBox(height: 24.h),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 2,
-                  child: ListView.builder(
-                    itemCount: response
-                            ?.question?[controller.indexQuestion.value]
-                            .options
-                            ?.length ??
-                        0,
-                    itemBuilder: (context, index) {
-                      if (index < 0 ||
-                          index >= (response?.question?.length ?? 0)) {
-                        return const SizedBox();
-                      }
-                      return Obx(
-                        () => RadioListTile(
-                          title: CustomText(
-                            title: response
-                                    ?.question?[controller.indexQuestion.value]
-                                    .options?[index]
-                                    .optionName ??
-                                '',
-                            size: 15.sp,
-                            weight: FontWeight.w400,
-                          ),
-                          value: controller.selectedOption.value,
-                          groupValue: response
-                              ?.question?[controller.indexQuestion.value]
-                              .options?[index]
-                              .points,
-                          onChanged: (value) {
-                            controller.selectedOption.value = response
-                                    ?.question?[controller.indexQuestion.value]
-                                    .options?[index]
-                                    .points ??
-                                0;
-                          },
-                        ),
-                      );
-                    },
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: controller.currentQuestion.options?.length,
+                      itemBuilder: (context, index) {
+                        log(controller.currentQuestion.options?.length
+                                .toString() ??
+                            '');
+                        return Obx(
+                          () => controller.currentQuestion.type ==
+                                  'multiple_choice'
+                              ? RadioListTile(
+                                  title: CustomText(
+                                    title: controller.currentQuestion
+                                            .options?[index].optionName ??
+                                        '',
+                                    size: 15.sp,
+                                    weight: FontWeight.w400,
+                                  ),
+                                  value: controller
+                                      .currentQuestion.options?[index],
+                                  groupValue: controller.selectedOption.value,
+                                  onChanged: (value) {
+                                    value = controller
+                                        .currentQuestion.options?[index];
+                                  },
+                                )
+                              : Container(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 14.w),
+                                  child: Row(
+                                    children: [
+                                      Checkbox(
+                                        checkColor: ColorThemes.primaryColor,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(4.r))),
+                                        side: BorderSide(
+                                            color: ColorThemes.hover),
+                                        visualDensity: VisualDensity.standard,
+                                        value: controller.isChecked.value,
+                                        onChanged: (value) {
+                                          controller.isChecked.value = value!;
+                                        },
+                                      ),
+                                      CustomText(
+                                        title: controller.currentQuestion
+                                                .options?[index].optionName ??
+                                            '',
+                                        size: 15.sp,
+                                        weight: FontWeight.w400,
+                                        colorText: ColorThemes.textColor,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Padding(
@@ -164,7 +186,9 @@ class TestAssessmentView extends StatelessWidget {
                           isBorder: true,
                           title: 'Back',
                           onTap: () {
-                            controller.indexQuestion.value -= 1;
+                            if (controller.indexQuestion > 0) {
+                              controller.indexQuestion.value -= 1;
+                            }
                           },
                         ),
                       ),
@@ -176,7 +200,10 @@ class TestAssessmentView extends StatelessWidget {
                           isBorder: false,
                           title: 'Next',
                           onTap: () {
-                            controller.indexQuestion.value += 1;
+                            if (controller.indexQuestion <=
+                                controller.questionList.length) {
+                              controller.indexQuestion.value += 1;
+                            }
                           },
                         ),
                       ),

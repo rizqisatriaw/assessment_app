@@ -39,6 +39,7 @@ class CustomButtonIcon extends StatelessWidget {
               size: 15.sp,
               weight: FontWeight.w600,
               colorText: ColorThemes.white,
+              maxLine: 2,
             ),
           ],
         ),
