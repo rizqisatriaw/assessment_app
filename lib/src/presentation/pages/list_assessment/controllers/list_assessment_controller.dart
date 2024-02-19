@@ -28,7 +28,7 @@ class ListAssessmentController extends GetxController {
       if (offset != null) {
         dataOffset.value = offset;
       }
-      final response = await ListAssessmentRepository.fetchAssessments(
+      final response = await ListAssessmentRepository().fetchAssessments(
         dataOffset: dataOffset.value,
       );
       if (response?.status ?? false) {

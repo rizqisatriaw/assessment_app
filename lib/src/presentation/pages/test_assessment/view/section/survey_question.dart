@@ -46,8 +46,15 @@ class SurveyQuestion extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item =
                     controller.testResponse?.data?.question?[index].number;
-                return CustomItemGrid(
-                  number: item.toString(),
+                return InkWell(
+                  onTap: () {
+                    controller.indexQuestion.value =
+                        (int.parse(item ?? '0') - 1);
+                    Get.back();
+                  },
+                  child: CustomItemGrid(
+                    number: item.toString(),
+                  ),
                 );
               },
             ),

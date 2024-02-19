@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import '../models/list_assessment_response.dart';
 
 class ListAssessmentRepository {
-  static Future<ListAssessmentResponse?> fetchAssessments({
+  Future<ListAssessmentResponse?> fetchAssessments({
     int dataOffset = 1,
   }) async {
     try {

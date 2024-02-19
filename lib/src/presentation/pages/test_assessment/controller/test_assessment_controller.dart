@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:assessment_app/src/data/models/test_assessment_response.dart';
 import 'package:assessment_app/src/data/repositories/test_assessment_repository.dart';
+import 'package:assessment_app/src/domain/entities/test_assessment/option.dart';
 import 'package:get/get.dart';
 
 import '../../../../../configs/themes/color_themes.dart';
@@ -14,10 +15,14 @@ class TestAssessmentController extends GetxController {
   TestAssessmentResponse? testResponse;
 
   var isChecked = false.obs;
-  RxInt selectedOption = 0.obs;
+  RxList<bool> selectedChecked = [false, false, false, false, false].obs;
+  Rx<Option?>? selectedOptions = Rx<Option>(Option());
   RxInt indexQuestion = 0.obs;
   RxList<Question> questionList = RxList.empty();
+  int get questionView => indexQuestion.value + 1;
   Question get currentQuestion => questionList[indexQuestion.value];
+
+  RxBool isLoading = false.obs;
 
   @override
   void onInit() {
@@ -28,6 +33,7 @@ class TestAssessmentController extends GetxController {
   }
 
   Future<void> fetchTestAssessment() async {
+    isLoading.value = true;
     var response =
         await TestAssessmentRepository.fetchTest(assessmentId: id.value);
     if (response?.status ?? false) {
@@ -42,9 +48,15 @@ class TestAssessmentController extends GetxController {
         backgroundColor: ColorThemes.white,
       );
     }
+    isLoading.value = false;
   }
 
-  void handleRadioValueChange(int value) {
-    selectedOption.value = value;
+  void handleRadioValueChange(Option? value) {
+    selectedOptions?.value = value;
+  }
+
+  void setCheckBoxAnswer(int index, bool value) {
+    selectedChecked[index] = value;
+    update();
   }
 }
