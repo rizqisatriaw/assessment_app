@@ -21,6 +21,7 @@ This project is a starting point for a Flutter application.
 * [Intl](https://pub.dev/packages/intl)
 * [CachedNetworkImage](https://pub.dev/packages/cached_network_image)
 * [GroupButton](https://pub.dev/packages/group_button)
+* [Mockito](https://pub.dev/packages/mockito)
 
 ### Folder Structure
 Here is the core folder structure which flutter.
