@@ -61,34 +61,3 @@ lib/
         |- widgets
 |- main.dart
 ```
-
-### List of challenge points that have been implemented :
-
-```
-1. Login Page (25 Point) *All Done
-    |- Point a (Done)
-    |- Point b (Done)
-    |- Point c (Done)
-    |- Point d (Done)
-    
-2. List Assessment Page (20 Point) *All Done
-    |- Point a (Done)
-    |- Point b (Done)
-    |- Point c (Done)
-    
-3. Assessment test page (30 Point)  
-    |- Point a (Done)
-    |- Point b (Done)
-    |- Point c (Done)
-    |- Point d (Done)
-    |- Point e
-    
-4. Handle Offline Mode (50 Point)
-    |- Point a 
-    |- Point b 
-    |- Point c 
-    
-Bonus Criteria :
-    |- Unit Test (done)
-    |- Documentation (done)
-```
